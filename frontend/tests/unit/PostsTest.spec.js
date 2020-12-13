@@ -114,4 +114,14 @@ describe('Posts', () => {
         let renderedPosts = wrapper.findAll('.post')
         expect(renderedPosts.length).toEqual(correctAmount)
     })
+
+    it('correct media tag is used', () => {
+        let posts = wrapper.findAll('.post')
+        let counter = 1
+        for (const post of posts) {
+            let tag = wrapper.findComponent(post.media.type)
+            expect(tag).toEqual(testData.find(counter).media.type)
+            counter += 1
+        }
+    })
 });
