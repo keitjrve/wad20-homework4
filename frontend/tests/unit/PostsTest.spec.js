@@ -102,5 +102,12 @@ describe('Posts', () => {
 
     it('1 == 1', function () {
         expect(true).toBe(true)
-    });
+    })
+
+    it('post created time is displayed correctly', () => {
+        let correct =  'Saturday, December 5, 2020 1:53 PM'
+        expect(wrapper.html()).toContain(correct)
+    })
+
+
 });
