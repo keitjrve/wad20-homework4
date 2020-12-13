@@ -109,5 +109,9 @@ describe('Posts', () => {
         expect(wrapper.html()).toContain(correct)
     })
 
-
+    it('renders right amount of posts', () => {
+        let correctAmount = testData.length
+        let renderedPosts = wrapper.findAll('.post')
+        expect(renderedPosts.length).toEqual(correctAmount)
+    })
 });
