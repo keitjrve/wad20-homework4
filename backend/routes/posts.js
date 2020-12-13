@@ -39,6 +39,12 @@ router.post('/', authorize,  (request, response) => {
 router.put('/:postId/likes', authorize, (request, response) => {
 
     // Endpoint for current user to like a post
+    let userId = request.currentUser.id
+    let postId = request.params.postId
+
+    PostModel.like(userId, postId, () => {
+        response.status(201).json()
+    });
 });
 
 router.delete('/:postId/likes', authorize, (request, response) => {
